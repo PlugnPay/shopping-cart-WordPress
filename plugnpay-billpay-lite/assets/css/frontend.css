@@ -1,0 +1,184 @@
+.pnp-billpay-wrap {
+	max-width: 480px;
+	margin: 2rem auto;
+	padding: 0 1rem;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	color: #1a1a2e;
+}
+
+.pnp-billpay-card {
+	background: #ffffff;
+	border: 1px solid #d8dee9;
+	border-radius: 10px;
+	box-shadow: 0 8px 24px rgba(0, 51, 102, 0.08);
+	overflow: hidden;
+}
+
+.pnp-billpay-header {
+	padding: 0;
+	text-align: center;
+	overflow: hidden;
+}
+
+.pnp-billpay-logo-bar {
+	background: #ffffff;
+	padding: 1.25rem 1.5rem 1rem;
+	border-bottom: 1px solid #e2e8f0;
+	box-shadow: 0 1px 0 rgba(0, 51, 102, 0.04);
+}
+
+.pnp-billpay-logo {
+	display: block;
+	width: 204px;
+	max-width: 100%;
+	height: auto;
+	max-height: 59px;
+	margin: 0 auto;
+	object-fit: contain;
+	object-position: center;
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering: crisp-edges;
+	filter: drop-shadow(0 1px 2px rgba(0, 51, 102, 0.12));
+}
+
+.pnp-billpay-title-bar {
+	background: linear-gradient(135deg, #003366 0%, #005599 100%);
+	padding: 0.875rem 1.25rem;
+}
+
+.pnp-billpay-title {
+	margin: 0;
+	color: #ffffff;
+	font-size: 1.25rem;
+	font-weight: 600;
+	line-height: 1.3;
+}
+
+.pnp-billpay-body,
+.pnp-billpay-form,
+.pnp-billpay-summary {
+	padding: 1.25rem;
+}
+
+.pnp-billpay-summary dl {
+	margin: 0;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.5rem 1rem;
+}
+
+.pnp-billpay-summary dt {
+	font-weight: 600;
+	color: #003366;
+}
+
+.pnp-billpay-summary dd {
+	margin: 0;
+	text-align: right;
+}
+
+.pnp-field {
+	margin-bottom: 1rem;
+}
+
+.pnp-field label {
+	display: block;
+	margin-bottom: 0.35rem;
+	font-weight: 600;
+	color: #003366;
+	font-size: 0.95rem;
+}
+
+.pnp-field input[type="text"],
+.pnp-field input[type="tel"],
+.pnp-field input[type="email"],
+.pnp-field input[type="url"] {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0.65rem 0.75rem;
+	border: 1px solid #c5d0de;
+	border-radius: 6px;
+	font-size: 1rem;
+}
+
+.pnp-field input:focus {
+	outline: none;
+	border-color: #0073aa;
+	box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.15);
+}
+
+.pnp-btn-primary {
+	width: 100%;
+	background: #0073aa;
+	color: #ffffff;
+	border: none;
+	border-radius: 6px;
+	padding: 0.75rem 1rem;
+	font-size: 1rem;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.pnp-btn-primary:hover,
+.pnp-btn-primary:focus {
+	background: #005f8a;
+}
+
+.pnp-captcha-field {
+	display: flex;
+	justify-content: center;
+}
+
+.pnp-card-brands {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.5rem;
+	padding: 0 1.25rem 1.25rem;
+	opacity: 0.85;
+}
+
+.pnp-card-brands img {
+	height: 24px;
+	width: auto;
+}
+
+.pnp-billpay-message p {
+	line-height: 1.6;
+}
+
+.pnp-billpay-message a {
+	color: #0073aa;
+}
+
+.pnp-billpay-redirect {
+	text-align: center;
+}
+
+body.pnp-billpay-endpoint {
+	background: #f4f7fb;
+	margin: 0;
+}
+
+@media (max-width: 520px) {
+	.pnp-billpay-wrap {
+		margin: 1rem auto;
+	}
+
+	.pnp-billpay-logo-bar {
+		padding: 1rem 1rem 0.75rem;
+	}
+
+	.pnp-billpay-logo {
+		width: min(204px, 100%);
+		max-height: 52px;
+	}
+
+	.pnp-billpay-title-bar {
+		padding: 0.75rem 1rem;
+	}
+
+	.pnp-billpay-title {
+		font-size: 1.125rem;
+	}
+}
