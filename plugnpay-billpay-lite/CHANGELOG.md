@@ -45,7 +45,7 @@ Major release merging prior fork work into a unified, production-ready plugin wi
 
 - **404 on payment slug** — `pre_handle_404`, `parse_request` injection, and path fallback prevent WordPress from treating valid payment URLs as 404s
 - **Permalink dependency** — form submissions no longer require flushed rewrite rules
-- **Subdirectory path detection** — direct GET links resolve correctly when WordPress lives in a subdirectory (e.g. `/woocommerce/`)
+- **Subdirectory path detection** — direct GET links resolve correctly when WordPress lives in a subfolder (e.g. `https://yoursite.com/subfolder/...`)
 - **Callback URL validation** — saving Callback response type without a success URL shows a settings error instead of silently accepting invalid state
 - **XSS hardening** — sanitization and escaping across payment input and rendered output
 - **Session tampering** — captcha step reloads payment data from transient token rather than trusting client-supplied amount/identifier fields

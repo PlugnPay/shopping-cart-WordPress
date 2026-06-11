@@ -275,7 +275,7 @@ function pnp_ssl_required_and_missing() {
  * Admin-ajax payment URL (primary — works on every WordPress install).
  *
  * Uses wp-admin/admin-ajax.php which WordPress core always routes correctly,
- * including subdirectory installs (/woocommerce/), without rewrite rules.
+ * including subfolder installs (e.g. /subfolder/), without rewrite rules.
  *
  * @return string
  */

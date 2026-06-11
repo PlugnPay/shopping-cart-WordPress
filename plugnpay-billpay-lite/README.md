@@ -97,10 +97,10 @@ https://YOUR-SITE.com/wp-admin/admin-ajax.php?action=pnp_payment&amt=25.00&id1=I
 https://yoursite.com/wp-admin/admin-ajax.php?action=pnp_payment&amt=25.00&id1=INV-123
 ```
 
-If WordPress lives in a subfolder (e.g. `/woocommerce/`), include that path:
+If WordPress is installed in a subfolder, include that path — replace **`subfolder`** in the URL below with your actual folder name:
 
 ```
-https://yoursite.com/woocommerce/wp-admin/admin-ajax.php?action=pnp_payment&amt=25.00&id1=INV-123
+https://yoursite.com/subfolder/wp-admin/admin-ajax.php?action=pnp_payment&amt=25.00&id1=INV-123
 ```
 
 > **Tip:** Your exact URLs are shown on the **PlugnPay BillPay Lite** settings page — use those instead of guessing.
