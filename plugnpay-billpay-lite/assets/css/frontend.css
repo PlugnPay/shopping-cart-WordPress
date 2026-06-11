@@ -143,6 +143,19 @@
 	width: auto;
 }
 
+.pnp-card-brand-label {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.2rem 0.55rem;
+	border: 1px solid #c5d0de;
+	border-radius: 4px;
+	font-size: 0.75rem;
+	font-weight: 600;
+	color: #003366;
+	background: #f4f7fb;
+	white-space: nowrap;
+}
+
 .pnp-billpay-message p {
 	line-height: 1.6;
 }

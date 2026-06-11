@@ -17,6 +17,7 @@ define( 'PNP_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'PNP_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
 require_once PNP_PLUGIN_PATH . 'includes/security.php';
+require_once PNP_PLUGIN_PATH . 'includes/card-types.php';
 require_once PNP_PLUGIN_PATH . 'includes/hcaptcha.php';
 require_once PNP_PLUGIN_PATH . 'includes/payment-processor.php';
 require_once PNP_PLUGIN_PATH . 'includes/payment-form.php';

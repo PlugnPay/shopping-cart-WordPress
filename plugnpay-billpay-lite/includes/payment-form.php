@@ -69,78 +69,25 @@ function pnp_render_payment_form_shortcode() {
 }
 
 /**
- * Map PlugnPay card type names to brand image filenames (without extension).
- *
- * Keys are lowercase normalized labels from the Card Types Allowed setting.
- *
- * @return array<string, string>
- */
-function pnp_get_card_brand_image_map() {
-	return array(
-		'visa'             => 'visa',
-		'mastercard'       => 'mastercard',
-		'american express' => 'amex',
-		'amex'             => 'amex',
-		'discover'         => 'discover',
-		'diners'           => 'diners',
-		'diners club'      => 'diners',
-		'jcb'              => 'jcb',
-		'maestro'          => 'maestro',
-		'cirrus'           => 'cirrus',
-		'solo'             => 'solo',
-		'switch'           => 'switch',
-	);
-}
-
-/**
- * Parse Card Types Allowed admin setting into brand image filenames.
- *
- * @return string[] Unique image basenames in configured order; unknown types omitted.
- */
-function pnp_get_allowed_card_brands() {
-	$raw = get_option( 'pnp_pb_cards_allowed', 'Visa,Mastercard' );
-	if ( ! is_string( $raw ) || '' === trim( $raw ) ) {
-		return array();
-	}
-
-	$map    = pnp_get_card_brand_image_map();
-	$brands = array();
-	$seen   = array();
-
-	foreach ( explode( ',', $raw ) as $part ) {
-		$key = strtolower( trim( $part ) );
-		if ( '' === $key || ! isset( $map[ $key ] ) ) {
-			continue;
-		}
-
-		$filename = $map[ $key ];
-		if ( isset( $seen[ $filename ] ) ) {
-			continue;
-		}
-
-		$seen[ $filename ] = true;
-		$brands[]          = $filename;
-	}
-
-	return $brands;
-}
-
-/**
- * Render accepted card brand icons.
+ * Render accepted card brand icons and text labels for types without artwork.
  *
  * @return string
  */
 function pnp_render_card_brands() {
-	$brands = pnp_get_allowed_card_brands();
-	if ( empty( $brands ) ) {
+	$entries = pnp_get_selected_card_type_entries();
+	if ( empty( $entries ) ) {
 		return '';
 	}
 
 	ob_start();
 	?>
 	<div class="pnp-card-brands" aria-hidden="true">
-		<?php foreach ( $brands as $brand ) : ?>
-			<img src="<?php echo esc_url( PNP_PLUGIN_URL . 'images/' . $brand . '.png' ); ?>" alt="" />
+		<?php foreach ( $entries as $entry ) : ?>
+			<?php if ( ! empty( $entry['image'] ) ) : ?>
+				<img src="<?php echo esc_url( PNP_PLUGIN_URL . 'images/' . $entry['image'] . '.png' ); ?>" alt="" />
+			<?php else : ?>
+				<span class="pnp-card-brand-label"><?php echo esc_html( $entry['name'] ); ?></span>
+			<?php endif; ?>
 		<?php endforeach; ?>
 	</div>
 	<?php

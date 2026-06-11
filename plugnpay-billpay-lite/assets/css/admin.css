@@ -31,3 +31,18 @@
 .pnp-form-subtable .description {
 	color: #646970;
 }
+
+.pnp-card-type-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+	gap: 0.35rem 1rem;
+	max-width: 640px;
+	margin-top: 0.25rem;
+}
+
+.pnp-card-type-option {
+	display: flex;
+	align-items: center;
+	gap: 0.35rem;
+	font-weight: 500;
+}

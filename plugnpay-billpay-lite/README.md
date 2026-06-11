@@ -37,8 +37,7 @@ Enter the credentials from your PlugnPay account:
 - **Authorization Hash Key** — must match your PlugnPay account  
 - **Authorization Hash Fields** — must match your PlugnPay account  
 - **Currency** — e.g. `USD`  
-- **Card Types Allowed** — e.g. `Visa,Mastercard,American Express`  
-  (This also controls which card icons appear on the form.)
+- **Card Types Allowed** — check the types your PlugnPay account accepts (Visa, Mastercard, Amex, Discover, Diners, JCB, EasyLink, Bermuda, IslandCard, Butterfield, KeyCard, MilStar, Solo, Switch). Icons show where artwork exists; others appear as text labels.
 
 ### 2. hCaptcha
 
@@ -140,9 +139,9 @@ https://yoursite.com/woocommerce/wp-admin/admin-ajax.php?action=pnp_payment&amt=
 
 - Clear your **page cache** (LiteSpeed, Cloudflare, etc.) so the new form HTML loads.
 
-### Card icons missing
+### Card icons missing or showing text labels
 
-Use recognized names in **Card Types Allowed**, e.g. `Visa`, `Mastercard`, `Amex`, `Discover`.
+In **Card Types Allowed**, pick from the supported PlugnPay values: Visa, Mastercard, Amex, Discover, Diners, JCB, EasyLink, Bermuda, IslandCard, Butterfield, KeyCard, MilStar, Solo, Switch. Major brands show icons; regional types (e.g. EasyLink, Bermuda) show a text label instead.
 
 ---
 

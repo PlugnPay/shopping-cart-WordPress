@@ -234,7 +234,7 @@ function pnp_register_settings() {
 		'pnp_layout_identifer2_enabled'   => 'pnp_sanitize_yes_no',
 		'pnp_layout_identifer2_title'     => 'pnp_sanitize_text_label',
 		'pnp_pt_gateway_account'          => 'pnp_sanitize_gateway_account',
-		'pnp_pb_cards_allowed'            => 'pnp_sanitize_text_label',
+		'pnp_pb_cards_allowed'            => 'pnp_sanitize_cards_allowed',
 		'pnp_pb_post_auth'                => 'pnp_sanitize_yes_no',
 		'pnp_pt_currency'                 => 'pnp_sanitize_currency',
 		'pnp_pt_order_classifier'         => 'pnp_sanitize_text_label',
@@ -404,7 +404,39 @@ function pnp_settings_page() {
 					</tr>
 					<tr>
 						<th scope="row"><?php echo esc_html__( 'Card Types Allowed *', 'plugnpay-billpay-lite' ); ?></th>
-						<td><input type="text" name="pnp_pb_cards_allowed" value="<?php echo esc_attr( get_option( 'pnp_pb_cards_allowed', 'Visa,Mastercard' ) ); ?>" size="30" required /></td>
+						<td>
+							<?php
+							$cards_allowed_value = get_option( 'pnp_pb_cards_allowed', 'Visa,Mastercard' );
+							$cards_selected      = pnp_parse_cards_allowed( $cards_allowed_value );
+							?>
+							<input type="hidden" name="pnp_pb_cards_allowed" id="pnp_pb_cards_allowed" value="<?php echo esc_attr( $cards_allowed_value ); ?>" />
+							<div class="pnp-card-type-grid">
+								<?php foreach ( pnp_get_card_type_catalog() as $entry ) : ?>
+									<label class="pnp-card-type-option">
+										<input type="checkbox" class="pnp-card-type-checkbox" value="<?php echo esc_attr( $entry['name'] ); ?>" <?php checked( in_array( $entry['name'], $cards_selected, true ) ); ?> />
+										<span><?php echo esc_html( $entry['name'] ); ?></span>
+									</label>
+								<?php endforeach; ?>
+							</div>
+							<p class="description">
+								<?php echo esc_html__( 'Select the card types your PlugnPay account accepts. Values are sent to Smart Screens v2 exactly as shown. Types without icons display a text label on the payment form.', 'plugnpay-billpay-lite' ); ?>
+							</p>
+							<script>
+							(function () {
+								function syncCardTypesAllowed() {
+									var values = [];
+									document.querySelectorAll('.pnp-card-type-checkbox:checked').forEach(function (cb) {
+										values.push(cb.value);
+									});
+									document.getElementById('pnp_pb_cards_allowed').value = values.join(',');
+								}
+								document.querySelectorAll('.pnp-card-type-checkbox').forEach(function (cb) {
+									cb.addEventListener('change', syncCardTypesAllowed);
+								});
+								syncCardTypesAllowed();
+							})();
+							</script>
+						</td>
 					</tr>
 					<tr>
 						<th scope="row"><?php echo esc_html__( 'Transaction Settlement', 'plugnpay-billpay-lite' ); ?></th>
